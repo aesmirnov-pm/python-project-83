@@ -3,7 +3,6 @@ click==8.1.7
 flake8==6.1.0
 Flask==2.3.3
 gunicorn==20.1.0
--e git+ssh://git@github.com/aesmirnov-pm/python-project-83.git@333f4c23eba9dee4b2333e73af914ec84563ae7e#egg=hexlet_code
 itsdangerous==2.2.0
 Jinja2==3.1.4
 MarkupSafe==3.0.2
