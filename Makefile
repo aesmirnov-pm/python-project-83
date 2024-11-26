@@ -9,3 +9,6 @@ lint:
 
 start:
 	poetry run gunicorn -w 5 page_analyzer:app
+
+build:
+	./build.sh
