@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ru">
+  {% include "head.html" %}
+
+<body class="min-vh-100 d-flex flex-column">
+  <main class="flex-grow-1">
+    <div class="container-lg mt-3">
+      <h1>Сайт: {{ name }} </h1>
+      <div>
+        <table class="table table-bordered table-hover text-nowrap" data-test="url">
+          <tbody>
+            <tr>
+              <td>ID</td>
+              <td>{{ id }}</td>
+            </tr>
+            <tr>
+              <td>Имя</td>
+              <td>{{ name }}</td>
+            </tr>
+            <tr>
+              <td>Дата создания</td>
+              <td>{{ created_at.date() }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <h1 class="mt-5 mb-3">Проверки</h1>
+      <form action="{{ url_for('check_url', id=id) }}" method="post">
+        <input type="submit" class="btn btn-primary" value="Запустить проверку">
+      </form>
+      <div>
+        <table class="table table-bordered table-hover mt-2" data-test="checks">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Код ответа</th>
+              <th>h1</th>
+              <th>title</th>
+              <th>description</th>
+              <th>Дата создания</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for check_id, status_code, h1, title, description, created_at in url_checks %}
+            <tr>
+              <td>{{ check_id }}</td>
+              <td>{{ status_code|default('', true) }}</td>
+              <td>{{ h1|default('', true) }}</td>
+              <td>{{ title|default('', true) }}</td>
+              <td>{{ description|default('', true) }}</td>
+              <td>{{ created_at.date() }}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

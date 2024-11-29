@@ -11,16 +11,18 @@
             <tr>
               <th>ID</th>
               <th>Имя</th>
-              <th>Время</th>
+              <th>Последняя проверка</th>
+              <th>Код ответа</th>
             </tr>
           </thead>
           <tbody>
-            {% for id, url, timestamp in all_urls %}
-              <tr>
-                  <td>{{ id }}</td>
-                  <td>{{ url }}</td>
-                  <td>{{ timestamp }}</td>
-              </tr>
+            {% for id, name, last_check, status_code in all_urls %}
+            <tr>
+              <td>{{ id }}</td>
+              <td><a href=" {{ url_for('show_url', id=id) }} ">{{ name }}</a></td>
+              <td>{{ last_check.date() if last_check }}</td>
+              <td>{{ status_code|default('', true) }}</td>
+            </tr>
             {% endfor %}
           </tbody>
         </table>
