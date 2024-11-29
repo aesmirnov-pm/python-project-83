@@ -3,11 +3,11 @@ import logging
 import requests
 from requests.exceptions import RequestException
 
-from flask import Flask, flash, redirect,\
+from flask import Flask, flash, redirect, \
     render_template, request, url_for, abort
 from dotenv import load_dotenv
 
-from .database import get_urls, add_to_urls, get_url_checks,\
+from .database import get_urls, add_to_urls, get_url_checks, \
     add_to_url_checks, get_url_by_name, get_url_by_id, connection
 from .html import get_seo_content
 from page_analyzer.utils import normalize, validate
@@ -75,7 +75,8 @@ def show_url(id):
             abort(404)
         url_checks = get_url_checks(conn, id)
     return render_template('one_url.html', id=found_url.id,
-                           name=found_url.name, created_at=found_url.created_at,
+                           name=found_url.name,
+                           created_at=found_url.created_at,
                            url_checks=url_checks)
 
 
