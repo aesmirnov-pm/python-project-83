@@ -3,7 +3,7 @@ import os
 
 import requests
 from dotenv import load_dotenv
-from flask import (abort, flash, Flask, redirect,
+from flask import (Flask, abort, flash, redirect,
                    render_template, request, url_for)
 from requests.exceptions import RequestException
 
