@@ -1,10 +1,9 @@
-import datetime as dt
 import contextlib
+import datetime as dt
 from functools import partial
 
 import psycopg2
 from psycopg2.extras import NamedTupleCursor
-
 
 SELECT_URL = 'SELECT * FROM urls WHERE urls.{column} = %s;'
 
