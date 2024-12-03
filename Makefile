@@ -5,7 +5,7 @@ install:
 	poetry install
 
 lint:
-	poetry run flake8 page_analyzer
+	poetry run flake8 page_analyzer && poetry run isort --check-only page_analyzer
 
 start:
 	poetry run gunicorn -w 5 page_analyzer:app
