@@ -3,8 +3,7 @@ import os
 
 import requests
 from dotenv import load_dotenv
-from flask import (Flask, abort, flash, redirect,
-                   render_template, request, url_for)
+from flask import Flask, abort, flash, redirect, render_template, request, url_for
 from requests.exceptions import RequestException
 
 from page_analyzer.utils import normalize, validate
