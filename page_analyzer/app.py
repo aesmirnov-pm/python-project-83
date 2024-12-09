@@ -3,20 +3,15 @@ import os
 
 import requests
 from dotenv import load_dotenv
-from flask import Flask, abort, flash, redirect, render_template, request, url_for
+from flask import (Flask, abort, flash, redirect, render_template, request,
+                   url_for)
 from requests.exceptions import RequestException
 
 from page_analyzer.utils import normalize, validate
 
-from .database import (
-    add_to_url_checks,
-    add_to_urls,
-    connection,
-    get_url_by_id,
-    get_url_by_name,
-    get_url_checks,
-    get_urls,
-)
+from .database import (add_to_url_checks, add_to_urls, connection,
+                       get_url_by_id, get_url_by_name, get_url_checks,
+                       get_urls)
 from .html import get_seo_content
 
 load_dotenv()
